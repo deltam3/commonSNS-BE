@@ -1,0 +1,17 @@
+{
+  "name": "commonsns-be",
+  "version": "1.0.0",
+  "description": "backend rest api for commonSNS",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
