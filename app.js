@@ -5,10 +5,13 @@ const path = require("path");
 const session = require("express-session");
 const dotenv = require("dotenv");
 const { sequelize } = require("./models");
+const passport = require("passport");
+const passportConfig = require("./passport");
 
 dotenv.config();
 const pageRouter = require("./routes/page");
 const app = express();
+passportConfig();
 app.set("port", process.env.PORT || 8001);
 sequelize
   .sync({ force: false })
@@ -34,6 +37,8 @@ app.use(
     },
   })
 );
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/", pageRouter);
 
