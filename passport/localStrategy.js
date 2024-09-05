@@ -1,5 +1,5 @@
 const passport = require("passport");
-const LocalStrategy = require("passport-local").LocalStrategy;
+const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
 
 const User = require("../models/user");
@@ -20,12 +20,13 @@ module.exports = () => {
             if (result) {
               done(null, exUser);
             } else {
-              done(null, false, { message: "비밀번호가 일치하지 않는다" });
+              done(null, false, { message: "비밀번호가 일치하지 않습니다." });
             }
           } else {
-            done(null, false, { message: "가입되지 않은 회원합니다" });
+            done(null, false, { message: "가입되지 않은 회원입니다." });
           }
         } catch (error) {
+          console.error(error);
           done(error);
         }
       }
