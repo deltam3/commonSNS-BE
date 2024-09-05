@@ -17,6 +17,13 @@ const userRouter = require("./routes/user");
 const app = express();
 app.use("/img", express.static(path.join(__dirname, "uploads")));
 passportConfig();
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Adjust as needed
+    credentials: true, // Allow cookies to be sent and received
+  })
+);
+
 app.set("port", process.env.PORT || 8001);
 sequelize
   .sync({ force: false })
